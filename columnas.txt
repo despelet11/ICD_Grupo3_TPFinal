@@ -1,0 +1,11 @@
+
+ldesemp_Por_debajo_del_nivel_básico	
+ldesemp_Básico	
+ldesemp_Satisfactorio	
+ldesemp_Avanzado
+
+
+mdesemp_Por_debajo_del_nivel_básico	
+mdesemp_Básico	
+mdesemp_Satisfactorio	
+mdesemp_Avanzado
