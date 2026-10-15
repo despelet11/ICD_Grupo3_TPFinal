@@ -41,66 +41,208 @@ library(tidyverse)
 
 # APRENDER 2019 - Secundaria
 archivo <- list.files(pattern = "^2019.*Lengua\\(in\\)\\.csv$")
-data_l_2019 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_l_2019_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 archivo <- list.files(pattern = "^2019.*Matematica\\(in\\)\\.csv$")
-data_m_2019 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_m_2019_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 
 # APRENDER 2021 - Primaria
 archivo <- list.files(pattern = "^2021.*Lengua\\(in\\)\\.csv$")
-data_l_2021 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_l_2021_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 archivo <- list.files(pattern = "^2021.*Matematica\\(in\\)\\.csv$")
-data_m_2021 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_m_2021_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 
 # APRENDER 2022 - Primaria (Muestral)
 archivo <- list.files(pattern = "^2022.*Lengua\\(in\\)\\.csv$")
-data_l_2022 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_l_2022_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 archivo <- list.files(pattern = "^2022.*Matematica\\(in\\)\\.csv$")
-data_m_2022 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_m_2022_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 
 # APRENDER 2023 - Primaria
 archivo <- list.files(pattern = "^2023.*Lengua\\(in\\)\\.csv$")
-data_l_2023 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_l_2023_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 archivo <- list.files(pattern = "^2023.*Matematica\\(in\\)\\.csv$")
-data_m_2023 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_m_2023_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 
 # APRENDER 2024 - Primaria (Muestral, 3.er grado)
 archivo <- list.files(pattern = "^2024.*Lengua\\(in\\)\\.csv$")
-data_l_2024 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_l_2024_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 # Archivo 2024 - Solo CC
 archivo <- list.files(pattern = "^2024.*SoloCC\\.csv$")
-data_m_2024 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_m_2024_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 
 # APRENDER 2025 - Primaria
 archivo <- list.files(pattern = "^2025.*Lengua\\(in\\)\\.csv$")
-data_l_2025 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_l_2025_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 archivo <- list.files(pattern = "^2025.*Matematica\\(in\\)\\.csv$")
-data_m_2025 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+data_m_2025_ds <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
                          trim_ws = TRUE, show_col_types = FALSE)
 
 ```
 
-```{r}
+select para elegir las columnas que quiero ver
 
+pcia, depto, sector, ambito y niveles
+
+```{r}
+# Lengua
+data_l_2019 <- data_l_2019_ds %>%
+  select(
+    cod_provincia,	departamento,	sector,	ambito,
+    ldesemp_Por_debajo_del_nivel_básico,
+    ldesemp_Básico,
+    ldesemp_Satisfactorio,
+    ldesemp_Avanzado
+  )
+
+data_l_2021 <- data_l_2021_ds %>%
+  select(
+    jurisdiccion,	departamento,	sector,	ambito,
+    ldesemp_Por_debajo_del_nivel_básico,
+    ldesemp_Básico,
+    ldesemp_Satisfactorio,
+    ldesemp_Avanzado
+  )
+
+data_l_2022 <- data_l_2022_ds %>%
+  select(
+    jurisdiccion,	sector,	ambito,
+    ldesemp_Por_debajo_del_básico,
+    ldesemp_Básico,
+    ldesemp_Satisfactorio,
+    ldesemp_Avanzado
+  )
+
+data_l_2023 <- data_l_2023_ds %>%
+  select(
+    jurisdiccion,	departamento,	sector,	ambito,
+    ldesemp_Por_debajo_del_nivel_básico,
+    ldesemp_Básico,
+    ldesemp_Satisfactorio,
+    ldesemp_Avanzado
+  )
+
+data_l_2024 <- data_l_2024_ds %>%
+  select(
+    jurisdiccion,	sector,	ambito,
+    ldesemp_Lector_incipiente,
+    ldesemp_Nivel_I,
+    ldesemp_Nivel_II,
+    ldesemp_Nivel_III,
+    ldesemp_Nivel_IV,
+    ldesemp_Nivel_V
+  )
+
+data_l_2025 <- data_l_2025_ds %>%
+  select(
+    jurisdiccion,	departamento,	sector,	ambito,
+    ldesemp_Por_debajo_del_nivel_básico,
+    ldesemp_Básico,
+    ldesemp_Satisfactorio,
+    ldesemp_Avanzado
+  )
+
+
+# Matemática
+data_m_2019 <- data_m_2019_ds %>%
+  select(
+    cod_provincia,	departamento,	sector,	ambito,
+    mdesemp_Por_debajo_del_nivel_básico,
+    mdesemp_Básico,
+    mdesemp_Satisfactorio,
+    mdesemp_Avanzado
+  )
+
+data_m_2021 <- data_m_2021_ds %>%
+  select(
+    jurisdiccion,	departamento,	sector,	ambito,
+    mdesemp_Por_debajo_del_nivel_básico,
+    mdesemp_Básico,
+    mdesemp_Satisfactorio,
+    mdesemp_Avanzado
+  )
+
+data_m_2022 <- data_m_2022_ds %>%
+  select(
+    jurisdiccion,		sector,	ambito,
+    mdesemp_Por_debajo_del_básico,
+    mdesemp_Básico,
+    mdesemp_Satisfactorio,
+    mdesemp_Avanzado
+  )
+
+data_m_2023 <- data_m_2023_ds %>%
+  select(
+    jurisdiccion,	departamento,	sector,	ambito,
+    mdesemp_Por_debajo_del_nivel_básico,
+    mdesemp_Básico,
+    mdesemp_Satisfactorio,
+    mdesemp_Avanzado
+  )
+
+
+
+data_m_2025 <- data_m_2025_ds %>%
+  select(
+    jurisdiccion,	departamento,	sector,	ambito,
+    mdesemp_Por_debajo_del_nivel_básico,
+    mdesemp_Básico,
+    mdesemp_Satisfactorio,
+    mdesemp_Avanzado
+  )
+```
+
+filtro para buenos aires
+
+```{r}
+# Lengua
+data_l_2021_ba <- data_l_2021 %>%
+  filter(jurisdiccion == "Buenos Aires")
+
+data_l_2022_ba <- data_l_2022 %>%
+  filter(jurisdiccion == "Buenos Aires")
+
+data_l_2023_ba <- data_l_2023 %>%
+  filter(jurisdiccion == "Buenos Aires")
+
+data_l_2024_ba <- data_l_2024 %>%
+  filter(jurisdiccion == "Buenos Aires")
+
+data_l_2025_ba <- data_l_2025 %>%
+  filter(jurisdiccion == "Buenos Aires")
+
+
+# Matemática
+data_m_2021_ba <- data_m_2021 %>%
+  filter(jurisdiccion == "Buenos Aires")
+
+data_m_2022_ba <- data_m_2022 %>%
+  filter(jurisdiccion == "Buenos Aires")
+
+data_m_2023_ba <- data_m_2023 %>%
+  filter(jurisdiccion == "Buenos Aires")
+
+data_m_2025_ba <- data_m_2025 %>%
+  filter(jurisdiccion == "Buenos Aires")
 ```
