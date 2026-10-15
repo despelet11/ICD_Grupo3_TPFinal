@@ -1,0 +1,106 @@
+---
+title: "TPF"
+format: html
+editor: visual
+---
+
+``` r
+
+```
+
+```{r}
+install.packages("tidyverse")
+setwd("C:/Users/service/Desktop/ICD_Grupo3_TPFinal/ICD_Grupo3_TPFinal")
+getwd()
+library(tidyverse)
+
+```
+
+```{r}
+list.files()
+```
+
+```{r}
+archivo <- "2019 Base APRENDER - Censal - Secundaria 5-6 año - Agregada - Desempeños de Lengua(in).csv"
+
+readLines(archivo, n = 3)
+```
+
+```{r}
+list.files(pattern = "\\.csv$")
+```
+
+```{r}
+
+
+```
+
+```{r}
+library(tidyverse)
+
+
+# APRENDER 2019 - Secundaria
+archivo <- list.files(pattern = "^2019.*Lengua\\(in\\)\\.csv$")
+data_l_2019 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+archivo <- list.files(pattern = "^2019.*Matematica\\(in\\)\\.csv$")
+data_m_2019 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+
+# APRENDER 2021 - Primaria
+archivo <- list.files(pattern = "^2021.*Lengua\\(in\\)\\.csv$")
+data_l_2021 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+archivo <- list.files(pattern = "^2021.*Matematica\\(in\\)\\.csv$")
+data_m_2021 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+
+# APRENDER 2022 - Primaria (Muestral)
+archivo <- list.files(pattern = "^2022.*Lengua\\(in\\)\\.csv$")
+data_l_2022 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+archivo <- list.files(pattern = "^2022.*Matematica\\(in\\)\\.csv$")
+data_m_2022 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+
+# APRENDER 2023 - Primaria
+archivo <- list.files(pattern = "^2023.*Lengua\\(in\\)\\.csv$")
+data_l_2023 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+archivo <- list.files(pattern = "^2023.*Matematica\\(in\\)\\.csv$")
+data_m_2023 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+
+# APRENDER 2024 - Primaria (Muestral, 3.er grado)
+archivo <- list.files(pattern = "^2024.*Lengua\\(in\\)\\.csv$")
+data_l_2024 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+# Archivo 2024 - Solo CC
+archivo <- list.files(pattern = "^2024.*SoloCC\\.csv$")
+data_m_2024 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+
+# APRENDER 2025 - Primaria
+archivo <- list.files(pattern = "^2025.*Lengua\\(in\\)\\.csv$")
+data_l_2025 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+archivo <- list.files(pattern = "^2025.*Matematica\\(in\\)\\.csv$")
+data_m_2025 <- read_csv2(archivo, locale = locale(encoding = "Latin1"),
+                         trim_ws = TRUE, show_col_types = FALSE)
+
+```
+
+```{r}
+
+```
